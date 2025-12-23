@@ -6,7 +6,7 @@ app.factory('calc', function () {
         VAT: 0.12,
         TRANSACTION_FEE: 0.00005,
         SCCP_FEE: 0.0001,
-        SALES_TAX: 0.005,
+        SALES_TAX: 0.001, // 0.005
         computeBuy: function(noOfShares, price) {
             var grossAmount = noOfShares * price;
             var brokerCommission = Math.max(this.MIN_BROKER_COMMISSION, grossAmount * this.BROKER_COMMISSION);
