@@ -82,7 +82,11 @@ var app = angular.module('calcApp', ['ngStorage'])
             computeBuy();
         }
     }
-    $scope.$watch('data.capital', computeShares);
+    $scope.$watch('data.capital', function() {
+        if (!isNaN($scope.data.capital) && $scope.data.capital > 0) {
+            computeShares($scope.data.capital);
+        }
+    });
     $scope.$watch(function () {
         return $scope.data.buy.price;
     }, function (value) {
